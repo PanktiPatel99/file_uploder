@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./FileUpload.css";
+import EnhancedFileUpload from "./HOC";
 
-const FileUpload = () => {
-  const [file, setFile] = useState("");
-
-  const handleUpload = (e) => {
-    // console.log(e);
-    setFile(e.target.files[0]);
-  };
-
+const FileUpload = ({ handleUpload, file }) => {
   return (
     <div className="file_uploader">
       <div className="file_details">
@@ -21,4 +15,4 @@ const FileUpload = () => {
   );
 };
 
-export default FileUpload;
+export default EnhancedFileUpload(FileUpload);
